@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lawyers</title>
+    <link rel="icon" type="image/x-icon" href="./logo/LegalAssist.png">
+    <script src="https://kit.fontawesome.com/5598f0038c.js" crossorigin="anonymous"></script>
+</head>
+<link rel="stylesheet" href="./lawyer.css">
+
+<body>
+    <h1>Navbar</h1>
+    <hr>
+    <div id="LawyerBar">
+        <div id="searchBox">
+            <input class="searchInput" contenteditable="true" placeholder="Search Lawyers..."></input>
+            <i id="Search" class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggle()" class="dropbtn" id="filter">Filter By Type</button>
+            <div id="myDropdown" class="dropdown-content">
+                <button onclick="toggle()">Environmental lawyers</button><br>
+                <button onclick="toggle()">Family lawyers</button><br>
+                <button onclick="toggle()">Corporate lawyers</button><br>
+                <button onclick="toggle()">Civil lawyers</button><br>
+                <button onclick="toggle()">Intellectual property lawyers</button><br>
+                <button onclick="toggle()">Tax lawyer</button><br>
+                <button onclick="toggle()">Cyber lawyers</button><br>
+                <button onclick="toggle()">Estate planning lawyers</button><br>
+                <button onclick="toggle()">Worker's compensation lawyer</button><br>
+                <button onclick="toggle()">Public interest lawyers</button><br>
+                <button onclick="toggle()">Medical malpractice lawyers</button><br>
+                <button onclick="toggle()">Merger and acquisition lawyer</button><br>
+                <button onclick="toggle()">Labour lawyers</button><br>
+                <button onclick="toggle()">Bankruptcy lawyers</button><br>
+                <button onclick="toggle()">Securities lawyer</button><br>
+                <button onclick="toggle()">Military lawyers</button><br>
+                <button onclick="toggle()">Contract lawyers</button><br>
+                <button onclick="toggle()">Government lawyers</button><br>
+                <button onclick="toggle()">Immigration lawyers</button><br>
+            </div>
+        </div>
+    </div>
+    <script src="./lawyer.js"></script>
+</body>
+
+</html>
