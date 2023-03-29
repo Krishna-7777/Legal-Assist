@@ -14,22 +14,22 @@ const secretKey = process.env.SECRETKEY;
 
 
 // Importing Custom Modules
-const { UsersModel } = require("../models/users");
-const { check_user_email } = require("../middleware/check_user_email");
-const { check_user_username } = require("../middleware/check_user_username");
+const { LawyerModel } = require("../models/lawyers");
+const { check_lawyer_email } = require("../middleware/check_lawyer_email");
+const { check_lawyer_username } = require("../middleware/check_lawyer_username");
 
 // Separating Routes
-const userRoute = express.Router();
+const lawyerRoute = express.Router();
 
 
 // Middlewares
-userRoute.use(express.json());
+lawyerRoute.use(express.json());
 
 
 
 
 // Users Registration Route
-userRoute.post("/register", check_user_email, check_user_username, async (req, res) => {
+lawyerRoute.post("/register", check_lawyer_email, check_lawyer_username, async (req, res) => {
     let { username, email, password } = req.body;
     try {
         bcrypt.hash(password, saltRounds, async (err, hashed_pass) => {
@@ -40,7 +40,7 @@ userRoute.post("/register", check_user_email, check_user_username, async (req, r
                 // var token = jwt.sign({ email, username }, secretKey, { expiresIn: '24h' });
 
                 // Storing Data and sending response
-                let data = new UsersModel({ username, email, "password": hashed_pass });
+                let data = new LawyerModel({ username, email, "password": hashed_pass });
                 await data.save();
                 res.send([{ "message": `registration successfull` }]);
             }
@@ -52,10 +52,10 @@ userRoute.post("/register", check_user_email, check_user_username, async (req, r
 
 
 // Users Login Route
-userRoute.post("/login", async (req, res) => {
+lawyerRoute.post("/login", async (req, res) => {
     let { email, password } = req.body;
     try {
-        let check = await UsersModel.find({ "email": email });
+        let check = await LawyerModel.find({ "email": email });
 
         if (check.length == 1) {
 
@@ -80,4 +80,4 @@ userRoute.post("/login", async (req, res) => {
     }
 });
 
-module.exports = { userRoute };
+module.exports = { lawyerRoute };
