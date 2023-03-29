@@ -1,0 +1,193 @@
+
+body{   
+    margin: 0;
+    padding: 0;
+  
+}
+.App{
+    /* width: 78%; */
+    /* border: 1px solid red; */
+    height: auto;
+    margin: auto;
+}
+
+
+/* === Body css === */
+.mybody{
+    margin:  180px 0 180px;
+    padding-top: 70px;
+    height: 4000px;
+    width: 80%;
+    margin: auto;
+    /* border: 4px solid purple; */
+}
+/* Change above height */
+
+.banner{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    /* border: 1px solid red; */
+}
+
+.banner-left{
+    width: 45%;
+    /* border: 1px solid blue; */
+}
+.banner-left h1{
+    color: #414a4d;
+    /* padding-left: 15px; */
+    padding: 0 24px 24px;
+    font-size: 2vw;
+    text-align: left;
+}
+.banner-left p{
+    padding:  0 24px 20px;
+    font-size: 1.5vw;
+    color: #707070;
+    display: block;
+    /* margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px; */
+}
+.banner-right{
+    width: 50%;
+    height: 100%;
+    /* border: 1px solid purple; */
+}
+
+.start-now{
+    border: none;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 24px;
+    border-radius: 35px;
+    font-weight: 500;
+    color: #fff;
+    line-height: 26px;
+    font-size: 20px;
+    padding: 9px 35px;
+    /* transition: all .2s ease-in-out; */
+    background-size: 200% 100%;
+    cursor: pointer;
+    /* background-image: linear-gradient(to right,#23cea5 0%,#11abd5 50%,#23cea5 100%); */
+    background-image: linear-gradient(to right,#EC008C 0%,#fc6767 50%,#EC008C 100%) !important;
+    font-size: 20px!important;
+    padding-top: 13px!important;
+    padding-bottom: 13px!important;
+    padding-left: 60px!important;
+    padding-right: 60px!important;
+    display: inline-block;
+    border-radius: 2em;
+    box-shadow: 0 1px 20px 0 rgb(0 0 0 / 14%);
+}
+
+.start-now:hover{
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    background-image: linear-gradient(to right,#EC008C 100%,#fc6767 10%,#EC008C 0%) !important;
+}
+
+/* Banner 2  */
+
+.banner2 h2{
+    text-align: center;
+    font-size:  2.5vw;
+    padding: 0 0 80px;
+    color: #414a4d;
+    font-family: 'Nunito';
+}
+
+/* Banner 3 */
+
+.banner3 h2{
+    text-align: center;
+    font-size: 2.5vw;
+    padding: 0 0 0;
+    color: #414a4d;
+    font-family: "Nunito";
+}
+
+.banner3 p{
+    text-align: center;
+    color: #707070;
+    font-size: 1.40vw;
+    padding: 0;
+    margin-top: -20px;
+}
+
+.banner3{
+    background-color: #f2f5fa;
+}
+
+/* Card container */
+.grid-container{
+    display: grid;
+    padding-top: 15px;
+    grid-column-gap: 125px;
+    grid-row-gap:50px;
+    margin: auto;
+    margin-top: 10px;
+    background-color: #f2f5fa;
+    grid-template-columns: repeat(3, 1fr);
+}
+.card {
+    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+    transition: 0.3s;
+    background-color: #f2f5fa;
+    color:#707070;
+    padding: 10px 0 10px 0;
+    border-radius: 15px;
+ }
+ .card p{
+    font-size: 1rem;
+    font-family: "Nunito";
+ }
+.card img{
+    padding-left: 10px;
+} 
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+  
+.container {
+    padding: 2px 16px;
+}
+.trial-button{
+    align-items: center;
+    text-align: center;
+    margin-top: 15px;
+}
+.trial-button button{
+    border: none;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 24px;
+    border-radius: 35px;
+    font-weight: 500;
+    color: #fff;
+    line-height: 26px;
+    font-size: 20px;
+    padding: 9px 35px;
+    /* transition: all .2s ease-in-out; */
+    background-size: 200% 100%;
+    cursor: pointer;
+    /* background-image: linear-gradient(to right,#23cea5 0%,#11abd5 50%,#23cea5 100%); */
+    background-image: linear-gradient(to right,#EC008C 0%,#fc6767 50%,#EC008C 100%) !important;
+    font-size: 20px!important;
+    padding-top: 13px!important;
+    padding-bottom: 13px!important;
+    padding-left: 60px!important;
+    padding-right: 60px!important;
+    display: inline-block;
+    border-radius: 2em;
+    box-shadow: 0 1px 20px 0 rgb(0 0 0 / 14%);
+}
+
+.trial-button button:hover{
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    background-image: linear-gradient(to right,#EC008C 100%,#fc6767 10%,#EC008C 0%) !important;
+}
