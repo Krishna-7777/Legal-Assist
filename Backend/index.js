@@ -10,6 +10,10 @@ require('dotenv').config();
 
 // Importin Custom Modules
 const { connection } = require("./config/db");
+const { Authenication } = require("./middleware/authenticate");
+const { bookingRoute } = require("./routes/booking");
+const { userRoute } = require("./routes/users");
+const { lawyerRoute } = require("./routes/lawyers");
 
 
 
@@ -34,6 +38,16 @@ app.get("/", (req, res) => {
 // Users Route Segregation
 app.use("/users", userRoute);
 
+
+// Users Route Segregation
+app.use("/lawyer", lawyerRoute);
+
+// Authenication
+app.use(Authenication);
+
+
+// Booking Route Segregation
+app.use("/book", bookingRoute);
 
 
 // Starting server and connecting to the MongoDB
