@@ -33,7 +33,7 @@ lawyerRoute.use(express.json());
 
 // Users Registration Route
 lawyerRoute.post("/register", check_lawyer_email, check_lawyer_username, async (req, res) => {
-    let { username, email, password } = req.body;
+    let { username, email, type, password } = req.body;
     try {
         bcrypt.hash(password, saltRounds, async (err, hashed_pass) => {
             if (err) {
@@ -43,7 +43,7 @@ lawyerRoute.post("/register", check_lawyer_email, check_lawyer_username, async (
                 // var token = jwt.sign({ email, username }, secretKey, { expiresIn: '24h' });
 
                 // Storing Data and sending response
-                let data = new LawyerModel({ username, email, "password": hashed_pass });
+                let data = new LawyerModel({ username, email, type, "password": hashed_pass });
                 await data.save();
                 res.send([{ "message": `registration successfull` }]);
             }
