@@ -1,9 +1,45 @@
 body {
-    padding-top: 70px;
+    padding-top: 110px;
 }
 
 #myBody {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    padding: 0% 2%;
+    padding: 1% 2%;
+    gap: 10%;
+}
+
+#Booking form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#Booking form div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#Booking input {
+    font-size: 18px;
+    border-radius: 15px;
+    height: 40%;
+    padding: 2%;
+    align-self: center;
+}
+
+textarea {
+    font-size: 18px;
+    border-radius: 15px;
+    margin: 2% 0%;
+    padding: 2%;
+}
+
+#submit {
+    min-height: 110%;
+}
+
+#decsription {
+    font-size: 20px;
+    padding: 1% 10%;
 }

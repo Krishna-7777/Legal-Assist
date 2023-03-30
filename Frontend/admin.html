@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel | Legal Assist</title>
+    <link rel="stylesheet" href="./admin.css" /> 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="./logo/LegalAssist.png" />
+  </head>
+  <body>
+    <div id="cont">
+      <!-- Side Navbar Section -->
+      <div class="sidebar">
+        <button id="userDetails">User Details</button>
+        <hr />
+        <button id="lawyerDetails">Lawyer Details</button>
+        <hr />
+        <button id="showBookings">Show Bookings</button>
+      </div>
+    </div>
+    <!-- Dashboard Section -->
+    <div id="header">
+      <img src="./logo/LegalAssist-Transparent.png" alt="logo" />
+      <div id="title">
+        <h1>Admin Panel</h1>
+      </div>
+      <div></div>
+    </div>
+
+    <!-- Notification Section -->
+    <div id="empty">
+      <div id="notification">
+        <h2></h2>
+      </div>
+    </div>
+
+    <!-- Main Body to show Data -->
+    <div id="mainBody">
+      <!-- To Edit User Details -->
+      <div id="editForm" class="cssforForms">
+        <h1>Edit User Data</h1>
+        <label>Username</label>
+        <input type="text" id="edit_username" autocomplete="off" />
+
+        <label>Email</label>
+        <input type="text" id="edit_email" autocomplete="off" />
+
+        <label>Mobile</label>
+        <input type="text" id="edit_mobile" autocomplete="off" />
+
+        <div>
+          <button id="savebutton">Save</button>
+          <button id="exitbutton">Exit</button>
+        </div>
+      </div>
+      <!-- TO Show Products -->
+      <div id="showProducts">
+        <div id="title">
+          <h1>Product Details</h1>
+          <select id="select_category">
+            <option value="all">ALL Products</option>
+            <option value="best_sellers">Best Sellers</option>
+            <option value="new_launches">New Launches</option>
+            <option value="paratha_pizza">Paratha Pizza</option>
+            <option value="veg_pizza">Veg Pizza</option>
+            <option value="gourmet_pizza">Gourmet Pizza</option>
+            <option value="nonveg_pizza">NonVeg Pizza</option>
+            <option value="bevrages">Bevrages</option>
+            <option value="speciality_chicken">Speciality Chicken</option>
+            <option value="sides">Sides</option>
+          </select>
+        </div>
+        <div class="allProductsHere">
+         <!-- Showing All Products Here -->
+        </div>
+      </div>
+
+
+
+
+
+      <!-- To Edit Admin Details -->
+      <div id="admineditForm" class="cssforForms">
+        <h1>Edit Admin Data</h1>
+        <label>Username</label>
+        <input type="text" id="edit_admin_username" autocomplete="off" />
+
+        <label>Email</label>
+        <input type="text" id="edit_admin_email" autocomplete="off" />
+
+        <label>Mobile</label>
+        <input type="text" id="edit_admin_mobile" autocomplete="off" />
+
+        <div>
+          <button id="adminsavebutton">Save</button>
+          <button id="adminexitbutton">Exit</button>
+        </div>
+      </div>
+
+
+
+
+
+      <!-- To Add Discount Details -->
+      <div id="addDiscount" class="cssforForms">
+        <h1>Add Discount</h1>
+        <label>Name</label>
+        <input type="text" id="add_discount_name" autocomplete="off" />
+
+        <label>price</label>
+        <input type="text" id="add_discount_price" autocomplete="off" />
+
+        <div>
+          <button id="discountbutton">Save</button>
+          <button id="discountdeletebutton">Exit</button>
+        </div>
+      </div>
+
+
+
+
+
+      <!-- To Add a New user -->
+      <div id="addUserForm" class="cssforForms">
+        <h1>Add User</h1>
+        <label>Username</label>
+        <input type="text" id="add_user_username" autocomplete="off" />
+
+        <label>Email</label>
+        <input type="text" id="add_user_email" autocomplete="off" />
+
+        <label>Mobile</label>
+        <input type="text" id="add_user_mobile" autocomplete="off" />
+
+        <label>Password</label>
+        <input type="text" id="add_user_password" autocomplete="off" />
+
+        <div>
+          <button id="add_user_save_button">Save</button>
+          <button id="add_user_delete_button">Exit</button>
+        </div>
+      </div>
+
+
+
+
+  
+      <!-- To Add a New Product -->
+      <div id="addNewProduct" class="cssforForms">
+        <h1>Add Product</h1>
+        <label>Name</label>
+        <input type="text" id="add_product_name" autocomplete="off" />
+
+        <label>Description</label>
+        <input type="text" id="add_product_description" autocomplete="off" />
+
+        <label>Image</label>
+        <input type="text" id="add_product_image" autocomplete="off" />
+
+        <label>Price</label>
+        <input type="text" id="add_product_price" autocomplete="off" />
+
+        <label>Size</label>
+        <input type="text" id="add_product_size" autocomplete="off" />
+
+        <label>Category</label>
+        <input type="text" id="add_product_category" autocomplete="off" />
+        
+        <div>
+          <button id="add_product_save_button">Save</button>
+          <button id="add_product_delete_button">Exit</button>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+      <!-- To Add a New Admin -->
+      <div id="addAdminForm" class="cssforForms">
+        <h1>Add Admin</h1>
+        <label>Username</label>
+        <input type="text" id="add_admin_username" autocomplete="off" />
+
+        <label>Email</label>
+        <input type="text" id="add_admin_email" autocomplete="off" />
+
+        <label>Mobile</label>
+        <input type="text" id="add_admin_mobile" autocomplete="off" />
+
+        <label>Password</label>
+        <input type="text" id="add_admin_password" autocomplete="off" />
+
+        <label>Admin Key</label>
+        <input type="password" id="add_admin_key" autocomplete="off" />
+
+        <div>
+          <button id="add_admin_save_button">Save</button>
+          <button id="add_admin_delete_button">Exit</button>
+        </div>
+      </div>
+
+
+
+
+
+      <!-- Showing this in Starting -->
+      <div id="showLogo">
+        <img src="./logo/LegalAssist-Transparent.png" alt="" />
+        <h1>Legal Assist</h1>
+        <h1>Welcome to Admin Panel</h1>
+      </div>
+
+      <!-- Showing User and Admin Detais  -->
+      <div id="userData">
+        <h1>User Data</h1>
+        <div class="ind_item">
+          <!-- Rendering User Data here -->
+        </div>
+      </div>
+    </div>
+    <!-- <script src="./admin.js"></script> -->
+  </body>
+</html>
