@@ -8,7 +8,9 @@
     <title>LOGIN-PAGE</title>
     <link rel="icon" type="image/x-icon" href="../logo/LegalAssist.png">
     <link rel="stylesheet" href="./loginPage.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -27,46 +29,56 @@
         <div class="fillDetail">
 
             <!-- CREATE ACCOUNT FILL DETAIL -->
-            <!-- <div class="createAccount">
+            <div class="createAccount">
                 <h1>Create Account</h1>
                 <p>use your email for registration:</p>
                 <div class="fillCredential">
                     <div>
-                     
+
                         <input type="name" name="" id="name" placeholder="Enter Your Name" required>
                     </div>
                     <div>
-                        
+
                         <input type="email" name="" placeholder="Enter Your Email" id="email" required>
                     </div>
                     <div>
 
-                        <input type="password" name="" id="password" placeholder="Enter Pass
+                        <input type="password" name="" id="password" placeholder="Enter password
                         " required>
                     </div>
-                </div>
-                <button onclick="createAccount()" class="signUpBtn">SIGN UP</button>
-            </div> -->
-            <div class="createAccount">
-                <h1>LOGIN ACCOUNT</h1>
-                <p>use your email for Login:</p>
-                <div class="fillCredential">
+                    <p>If You Are Lawer Fill Below <span style="color:red;">Type</span></p>
                     <div>
-                        <!-- <span>Email</span> -->
-                        <input type="email" name="" placeholder="Enter Your Email" id="email" required>
+                        <select name="hello" id="select">
+                            <option value="">NOTHING</option>
+                            <option value="Environmental Lawyer">Environmental Lawyer</option>
+                            <option value="Family Lawyer">Family Lawyer</option>
+                            <option value="Corporate Lawyer">Corporate Lawyer</option>
+                            <option value="Civil Lawyer">Civil Lawyer</option>
+                            <option value="Intellectual Property Lawyer">Intellectual Property Lawyer</option>
+                            <option value="Tax Lawyer">Tax Lawyer</option>
+                            <option value="Cyber Lawyer">Cyber Lawyer</option>
+                            <option value="Estate Planning Lawyer">Estate Planning Lawyer</option>
+                            <option value="Workers Compensation Lawyer">Workers Compensation Lawyer</option>
+                            <option value="Public Interest Lawyer">Public Interest Lawyer</option>
+                            <option value="Medical Malpractice Lawyer">Medical Malpractice Lawyer</option>
+                            <option value="Merger and Acquisition Lawyer">Merger and Acquisition Lawyer</option>
+                            <option value="Labour Lawyer">Labour Lawyer</option>
+                            <option value="Bankruptcy Lawyer">Bankruptcy Lawyer</option>
+                            <option value="Securities Lawyer">Securities Lawyer</option>
+                            <option value="Military Lawyer">Military Lawyer</option>
+                            <option value="Contract Lawyer">Contract Lawyer</option>
+                            <option value="Government Lawyer">Government Lawyer</option>
+                            <option value="Immigration Lawyer">Immigration Lawyer</option>
+                        </select>
                     </div>
-                    <div>
-                        <!-- <span>Password</span> -->
-                        <input type="password" name="" id="password" placeholder="Enter Pass
-                        " required>
-                    </div>
+                    
                 </div>
                 <button onclick="createAccount()" class="signUpBtn">SIGN UP</button>
             </div>
-
         </div>
     </div>
 
 </body>
+
 </html>
 <script src="./loginPage.js"></script>
