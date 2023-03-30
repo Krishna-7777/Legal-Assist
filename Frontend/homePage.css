@@ -109,6 +109,13 @@ body{
     color: #414a4d;
     font-family: "Nunito";
 }
+.banner4 h2{
+    text-align: center;
+    font-size: 2.5vw;
+    padding: 0 0 0;
+    color: #414a4d;
+    font-family: "Nunito";
+}
 
 .banner3 p{
     text-align: center;
@@ -133,6 +140,18 @@ body{
     background-color: #f2f5fa;
     grid-template-columns: repeat(3, 1fr);
 }
+
+.grid-container-2{
+    display: grid;
+    padding-top: 15px;
+    grid-column-gap: 125px;
+    grid-row-gap:50px;
+    margin: auto;
+    margin-top: 10px;
+    background-color: #f2f5fa;
+    grid-template-columns: repeat(4, 1fr);
+}
+
 .card {
     /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
     transition: 0.3s;
@@ -190,4 +209,50 @@ body{
     cursor: pointer;
     transition: all .2s ease-in-out;
     background-image: linear-gradient(to right,#EC008C 100%,#fc6767 10%,#EC008C 0%) !important;
+}
+.container-3{
+    display: grid;
+    padding-top: 15px;
+    grid-column-gap: 125px;
+    grid-row-gap:50px;
+    margin: auto;
+    margin-top: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    /* border: 1px solid red; */
+}
+.cont-card{
+     display: flex;
+     flex-wrap: wrap;
+     width: 100%;
+     background-color: whitesmoke;
+     /* border: 1px solid blue; */
+     height: 14rem;
+     box-shadow: 0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)!important;
+     border-radius: 10px;
+     border: whitesmoke;
+     margin: 20px;
+}
+
+.cont-card h4{
+    color: #414a4d;
+    font-size: 18px;
+    font-family: "Nunito";
+}
+.card-left{
+    width: 25%;
+    background-color: #ffffff;
+}
+.card-left img{
+    align-items: center;
+    padding: 20px;
+
+}
+.card-right{
+    width: 75%;
+    background-color: #ffffff;
+}
+.cont-card p{
+    color: #707070;
+    font-size: 16px;
+    font-family: "Nunito";
 }
