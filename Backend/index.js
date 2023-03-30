@@ -14,6 +14,8 @@ const { Authenication } = require("./middleware/authenticate");
 const { bookingRoute } = require("./routes/booking");
 const { userRoute } = require("./routes/users");
 const { lawyerRoute } = require("./routes/lawyers");
+const { availRoute } = require("./routes/avail");
+const { adminRoute } = require("./routes/admin");
 
 
 
@@ -42,8 +44,15 @@ app.use("/users", userRoute);
 // Users Route Segregation
 app.use("/lawyer", lawyerRoute);
 
+// Users Route Segregation
+app.use("/admin", adminRoute);
+
 // Authenication
 app.use(Authenication);
+
+
+// Check availability and get Lawyer Details
+app.use("/avail", availRoute);
 
 
 // Booking Route Segregation

@@ -12,12 +12,6 @@ const LawyerModel = new mongoose.model("lawyer", lawyerSchema);
 module.exports = { LawyerModel };
 
 
-// -----------------
-// 
-// {LawyerID,userID, slotTIme, date}
-// Users Schema
-// Email, username, password
 
-// date
-// slot
-
+// Name for Lawyer by regex
+// type
