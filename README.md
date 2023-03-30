@@ -1,5 +1,5 @@
 
-<img src="/Frontend/logo/LegalAssist.png" width="100" heigth="100" />
+<img src="./Frontend/logo/LegalAssist.png" width="100" heigth="100" />
 
 ## LegalAssist
 
