@@ -14,24 +14,22 @@ const secretKey = process.env.SECRETKEY;
 
 
 // Importing Custom Modules
-const { UsersModel } = require("../models/users");
-const { check_user_email } = require("../middleware/check_user_email");
-const { check_user_username } = require("../middleware/check_user_username");
-const { SlotModel } = require("../models/slots");
-const { AuthenicateAdmin } = require("../middleware/authenticate_admin");
+const { AdminModel } = require("../models/admin");
+const { check_admin_email } = require("../middleware/check_admin_email");
+const { check_admin_username } = require("../middleware/check_admin_username");
 
 // Separating Routes
-const userRoute = express.Router();
+const adminRoute = express.Router();
 
 
 // Middlewares
-userRoute.use(express.json());
+adminRoute.use(express.json());
 
 
 
 
 // Users Registration Route
-userRoute.post("/register", check_user_email, check_user_username, async (req, res) => {
+adminRoute.post("/register", check_admin_email, check_admin_username, async (req, res) => {
     let { username, email, password } = req.body;
     try {
         bcrypt.hash(password, saltRounds, async (err, hashed_pass) => {
@@ -42,7 +40,7 @@ userRoute.post("/register", check_user_email, check_user_username, async (req, r
                 // var token = jwt.sign({ email, username }, secretKey, { expiresIn: '24h' });
 
                 // Storing Data and sending response
-                let data = new UsersModel({ username, email, "password": hashed_pass });
+                let data = new AdminModel({ username, email, "password": hashed_pass });
                 await data.save();
                 res.send([{ "message": `registration successfull` }]);
             }
@@ -54,17 +52,17 @@ userRoute.post("/register", check_user_email, check_user_username, async (req, r
 
 
 // Users Login Route
-userRoute.post("/login", async (req, res) => {
+adminRoute.post("/login", async (req, res) => {
     let { email, password } = req.body;
     try {
-        let check = await UsersModel.find({ "email": email });
+        let check = await AdminModel.find({ "email": email });
 
         if (check.length == 1) {
 
             bcrypt.compare(password, check[0].password, async (err, result) => {
                 if (result) {
                     // Generating Token
-                    var token = jwt.sign({ email }, secretKey, { expiresIn: '7d' });
+                    var token = jwt.sign({ email }, secretKey, { expiresIn: '3h' });
 
                     // Sending Response
                     res.send([{ "message": `${check[0].username} is successfully logged in` }, { "username": check[0].username, "Access_Token": token }]);
@@ -85,28 +83,4 @@ userRoute.post("/login", async (req, res) => {
 
 
 
-userRoute.get("/slots", async (req, res) => {
-
-    try {
-        const currentTime = new Date();
-        let data = await SlotModel.find({ date: { $gte: currentTime } });
-    } catch (error) {
-
-    }
-});
-
-
-
-// For Admin Purpose
-userRoute.use(AuthenicateAdmin);
-
-userRoute.get("/all", async (req, res) => {
-    try {
-        let data = await UsersModel.find();
-        res.send(data);
-    } catch (error) {
-        res.send({ "Error Found": error })
-    }
-})
-
-module.exports = { userRoute };
+module.exports = { adminRoute };
