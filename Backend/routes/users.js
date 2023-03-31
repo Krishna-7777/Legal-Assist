@@ -85,16 +85,6 @@ userRoute.post("/login", async (req, res) => {
 
 
 
-userRoute.get("/slots", async (req, res) => {
-
-    try {
-        const currentTime = new Date();
-        let data = await SlotModel.find({ date: { $gte: currentTime } });
-    } catch (error) {
-
-    }
-});
-
 
 
 // For Admin Purpose
@@ -105,7 +95,7 @@ userRoute.get("/all", async (req, res) => {
         let data = await UsersModel.find();
         res.send(data);
     } catch (error) {
-        res.send({ "Error Found": error })
+        res.send({ "Error": error })
     }
 })
 

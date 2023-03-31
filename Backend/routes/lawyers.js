@@ -20,6 +20,7 @@ const { check_lawyer_username } = require("../middleware/check_lawyer_username")
 const { SlotModel } = require("../models/slots");
 const { AuthenicateLawyer } = require("../middleware/authenticate_lawyer");
 const { AuthenicateAdmin } = require("../middleware/authenticate_admin");
+const { BookingModel } = require("../models/bookings");
 
 // Separating Routes
 const lawyerRoute = express.Router();
@@ -90,11 +91,11 @@ lawyerRoute.use(AuthenicateLawyer);
 
 // To add slots by Lawyers 
 lawyerRoute.post("/add", async (req, res) => {
-    let {lawyerID, time, date, available} = req.body;
+    let { lawyerID, time, date, available } = req.body;
     try {
         let dateString = date + 'T' + time;
         let mongoDate = new Date(dateString).toISOString();
-        let addSlot = new SlotModel({lawyerID, time, "date": mongoDate, available});
+        let addSlot = new SlotModel({ lawyerID, time, "date": mongoDate, available });
         await addSlot.save();
         res.send({ "msg": "Slot Successfully Added" });
     } catch (error) {
