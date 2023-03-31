@@ -14,10 +14,8 @@ bookingRoute.use(express.json());
 
 
 
-bookingRoute.use(AuthenicateUser);
 
-
-bookingRoute.post("/", async (req, res) => {
+bookingRoute.post("/",AuthenicateUser, async (req, res) => {
     let data = req.body;
     let { lawyerID, userID, slotID } = data;
 
@@ -55,9 +53,7 @@ bookingRoute.post("/", async (req, res) => {
 
 
 // For Admin Purpose
-bookingRoute.use(AuthenicateAdmin);
-
-bookingRoute.get("/allBookings", async (req, res) => {
+bookingRoute.get("/allBookings",AuthenicateAdmin, async (req, res) => {
     try {
         let allList = await BookingModel.find();
         let array = [];
