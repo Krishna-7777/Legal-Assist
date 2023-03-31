@@ -91,11 +91,12 @@ lawyerRoute.use(AuthenicateLawyer);
 
 // To add slots by Lawyers 
 lawyerRoute.post("/add", async (req, res) => {
-    let { lawyerID, time, date, available } = req.body;
+    let { username, time, date, available } = req.body;
     try {
         let dateString = date + 'T' + time;
         let mongoDate = new Date(dateString).toISOString();
-        let addSlot = new SlotModel({ lawyerID, time, "date": mongoDate, available });
+        let lawyerIDfind = await LawyerModel.find({"username": username});
+        let addSlot = new SlotModel({ "lawyerID":lawyerIDfind[0]._id, time, "date": mongoDate, available });
         await addSlot.save();
         res.send({ "msg": "Slot Successfully Added" });
     } catch (error) {
