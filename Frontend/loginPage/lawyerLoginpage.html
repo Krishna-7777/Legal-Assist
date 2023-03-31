@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN-PAGE</title>
+    <link rel="icon" type="image/x-icon" href="../logo/LegalAssist.png">
+    <link rel="stylesheet" href="./lawyerLogin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <!-- LEFT DIV -->
+        <div class="change">
+            <div>
+                <h1>WELCOME BACK</h1>
+                <p>To keep connected with us please login with your prsonal info</p>
+                <button class="changeBtn" onclick="changeBtn()">SIGN IN</button>
+            </div>
+            <img src="../logo/lawyer.jpg" alt="">
+        </div>
+
+        <!-- RIGHT DIV -->
+        <div class="fillDetail">
+
+            <!-- CREATE ACCOUNT FILL DETAIL -->
+            <div class="createAccount">
+                <h1>Create Account</h1>
+                <p>use your email for registration:</p>
+                <div class="fillCredential">
+                    <form action="">
+                        <input type="name" name="" id="name" placeholder="Enter Your Name" required>
+                        <input type="email" name="" placeholder="Enter Your Email" id="email" required>
+                        <input type="password" name="" id="password" placeholder="Enter password" required>
+                    </form>
+                    <div>
+                        <select name="hello" id="select" required>
+                            <option value="">Choice your Type</option>
+                            <option value="Environmental Lawyer">Environmental Lawyer</option>
+                            <option value="Family Lawyer">Family Lawyer</option>
+                            <option value="Corporate Lawyer">Corporate Lawyer</option>
+                            <option value="Civil Lawyer">Civil Lawyer</option>
+                            <option value="Intellectual Property Lawyer">Intellectual Property Lawyer</option>
+                            <option value="Tax Lawyer">Tax Lawyer</option>
+                            <option value="Cyber Lawyer">Cyber Lawyer</option>
+                            <option value="Estate Planning Lawyer">Estate Planning Lawyer</option>
+                            <option value="Workers Compensation Lawyer">Workers Compensation Lawyer</option>
+                            <option value="Public Interest Lawyer">Public Interest Lawyer</option>
+                            <option value="Medical Malpractice Lawyer">Medical Malpractice Lawyer</option>
+                            <option value="Merger and Acquisition Lawyer">Merger and Acquisition Lawyer</option>
+                            <option value="Labour Lawyer">Labour Lawyer</option>
+                            <option value="Bankruptcy Lawyer">Bankruptcy Lawyer</option>
+                            <option value="Securities Lawyer">Securities Lawyer</option>
+                            <option value="Military Lawyer">Military Lawyer</option>
+                            <option value="Contract Lawyer">Contract Lawyer</option>
+                            <option value="Government Lawyer">Government Lawyer</option>
+                            <option value="Immigration Lawyer">Immigration Lawyer</option>
+                        </select>
+                    </div>
+                    
+                </div>
+                <button onclick="createAccount()" class="signUpBtn">SIGN UP</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script src="./lawyerLoginpage.js"></script>

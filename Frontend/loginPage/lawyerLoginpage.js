@@ -19,14 +19,21 @@ function changeBtn() {
             <h1>LOGIN ACCOUNT</h1>
             <p>use your email for Login:</p>
             <div class="fillCredential">
-                <form action="">
+                <div>
+                    <!-- <span>Email</span> -->
                     <input type="email" name="" placeholder="Enter Your Email" id="email" required>
-                    <input type="password" name="" id="password" placeholder="Enter password" required>
-                </form>
+                </div>
+                <div>
+                    <!-- <span>Password</span> -->
+                    <input type="password" name="" id="password" placeholder="Enter password
+                    " required>
+                </div>
+                
             </div>
             <button  class="signUpBtn">SIGN IN</button>
         </div>
         `
+       
         const email = document.querySelector("#email")
         const password = document.querySelector("#password")
         let create = document.querySelector(".signUpBtn")
@@ -40,11 +47,7 @@ function changeBtn() {
                 alert("hello admin")
                 // window.location.href = "admin.html"
             }else{
-                if(obj.email=="" || obj.password==""){
-                    alert("Plz fill credential")
-                }else{
-                    userLoginAccount(obj)
-                }
+               lawyerLoginAccount(obj)
             }
             // console.log(obj)
         })
@@ -56,33 +59,70 @@ function changeBtn() {
         <div class="createAccount">
             <h1>Create Account</h1>
             <p>use your email for registration:</p>
-            
             <div class="fillCredential">
-                <form action="">
+                <div>
+                 
                     <input type="name" name="" id="name" placeholder="Enter Your Name" required>
+                </div>
+                <div>
+                    
                     <input type="email" name="" placeholder="Enter Your Email" id="email" required>
-                    <input type="password" name="" id="password" placeholder="Enter password" required>
-                </form>
+                </div>
+                <div>
+                    <input type="password" name="" id="password" placeholder="Enter password
+                    " required>
+                </div>
+                <div>
+                    <select name="hello" id="select">
+                        <option value="">Choice your Type</option>
+                        <option value="Environmental Lawyer">Environmental Lawyer</option>
+                        <option value="Family Lawyer">Family Lawyer</option>
+                        <option value="Corporate Lawyer">Corporate Lawyer</option>
+                        <option value="Civil Lawyer">Civil Lawyer</option>
+                        <option value="Intellectual Property Lawyer">Intellectual Property Lawyer</option>
+                        <option value="Tax Lawyer">Tax Lawyer</option>
+                        <option value="Cyber Lawyer">Cyber Lawyer</option>
+                        <option value="Estate Planning Lawyer">Estate Planning Lawyer</option>
+                        <option value="Workers Compensation Lawyer">Workers Compensation Lawyer</option>
+                        <option value="Public Interest Lawyer">Public Interest Lawyer</option>
+                        <option value="Medical Malpractice Lawyer">Medical Malpractice Lawyer</option>
+                        <option value="Merger and Acquisition Lawyer">Merger and Acquisition Lawyer</option>
+                        <option value="Labour Lawyer">Labour Lawyer</option>
+                        <option value="Bankruptcy Lawyer">Bankruptcy Lawyer</option>
+                        <option value="Securities Lawyer">Securities Lawyer</option>
+                        <option value="Military Lawyer">Military Lawyer</option>
+                        <option value="Contract Lawyer">Contract Lawyer</option>
+                        <option value="Government Lawyer">Government Lawyer</option>
+                        <option value="Immigration Lawyer">Immigration Lawyer</option>
+                       
+                    </select>
+                </div>
             </div>
-            <button onclick="createAccount()" class="signUpBtn">SIGN UP</button>
-            <p>If You are Lawyer ? <a href="./lawyerLoginpage.html">Click here!</a></p>
+            <button class="signUpBtn">SIGN UP</button>
         </div>
         `
-        const name = document.querySelector("#name")
+        const username = document.querySelector("#name")
         const email = document.querySelector("#email")
         const password = document.querySelector("#password")
+        const type = document.querySelector("#select")
         let create = document.querySelector(".signUpBtn")
         create.addEventListener("click", ()=>{
             // console.log("hello")
             let obj = {
-                username: name.value,
+                username: username.value,
                 email: email.value,
                 password: password.value,
+                type : type.value
             }
-            if(obj.username=="" || obj.email=="" || obj.password=="" ){
-                alert("Plz fill credential")
+            if(obj.username=="" && obj.email=="" && obj.password=="" ){
+                alert("plz fill detail")
             }else{
-               usersAccountcreate(obj)
+                if(obj.type==""){
+                    alert("plz fill type")
+                }else{
+        
+                    lawyerAccountCreate(obj)
+                }
             }
         })
     }
@@ -95,19 +135,25 @@ const createAccount = () => {
         username: name.value,
         email: email.value,
         password: password.value,
+        type : type.value
     }
-    if(obj.username=="" || obj.email=="" || obj.password=="" ){
+    // console.log(obj
+    if(obj.username=="" && obj.email=="" && obj.password=="" ){
         alert("Plz fill credential")
     }else{
-       usersAccountcreate(obj)
+        if(obj.type==""){
+            alert("Plz fill type")
+        }else{
+            lawyerAccountCreate(obj)
+        }
     }
 }
 
 // ACCOUNT CREATE
-async function usersAccountcreate(obj) {
-    console.log(obj)
+async function lawyerAccountCreate(obj) {
+    // console.log(obj)
     try {
-        let res = await fetch(`http://localhost:4500/users/register`, {
+        let res = await fetch(`http://localhost:4500/lawyer/register`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -118,16 +164,17 @@ async function usersAccountcreate(obj) {
             let data = await res.json()
             alert(data[0].message)
         }
+
     } catch (error) {
         console.log("something error while create account")
     }
 }
 
 // LOGIN ACCOUNT
-async function userLoginAccount(obj){
-    console.log(obj)
+async function lawyerLoginAccount(obj, type){
+    // console.log(obj, type)
     try {
-        let res = await fetch(`http://localhost:4500/users/login`, {
+        let res = await fetch(`http://localhost:4500/lawyer/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
