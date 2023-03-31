@@ -2,14 +2,14 @@
 const secretKey = process.env.SECRETKEY;
 var jwt = require('jsonwebtoken');
 require('dotenv').config();
-const { LawyerModel } = require("../models/lawyers");
+const { UsersModel } = require("../models/users");
 
-async function AuthenicateLawyer(req, res, next) {
+async function AuthenicateUser(req, res, next) {
     let token = req.headers.authorization;
     jwt.verify(token, secretKey, async (err, decoded) => {
         if (decoded) {
-            let lawyerData = await LawyerModel.find({ "email": decoded.email });
-            if (lawyerData.length == 1) {
+            let userData = await UsersModel.find({ "email": decoded.email });
+            if (userData.length == 1) {
                 next();
             } else {
                 res.send({"message": "Not Authorized"});
@@ -20,4 +20,4 @@ async function AuthenicateLawyer(req, res, next) {
     });
 }
 
-module.exports = { AuthenicateLawyer };
+module.exports = { AuthenicateUser };
