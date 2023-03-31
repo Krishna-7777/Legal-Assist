@@ -5,6 +5,7 @@ const availRoute = express.Router();
 const { LawyerModel } = require("../models/lawyers");
 const { SlotModel } = require("../models/slots");
 const { UsersModel } = require("../models/users");
+const { Authenication } = require("../middleware/authenticate");
 
 availRoute.use(express.json());
 
@@ -23,7 +24,7 @@ availRoute.get("/", async (req, res) => {
 
 
 // To get Lawyer by type
-availRoute.get("/type/:type", async (req, res) => {
+availRoute.get("/type/:type",Authenication, async (req, res) => {
     const type = req.params.type;
     try {
         let list = await LawyerModel.find({"type": type});
@@ -34,7 +35,7 @@ availRoute.get("/type/:type", async (req, res) => {
 });
 
 // To get Lawyer by name using regex Query
-availRoute.get("/name/:name", async (req, res) => {
+availRoute.get("/name/:name",Authenication, async (req, res) => {
     const name = req.params.name;
     try {
         let regex = new RegExp(name, "i");
@@ -47,7 +48,7 @@ availRoute.get("/name/:name", async (req, res) => {
 
 
 // Get Available Slots by LawyerID
-availRoute.get("/slots/:lawyerID", async(req,res)=>{
+availRoute.get("/slots/:lawyerID",Authenication, async(req,res)=>{
     try {
         let id = req.params.lawyerID;
         let currentTime = await new Date();
@@ -61,7 +62,7 @@ availRoute.get("/slots/:lawyerID", async(req,res)=>{
 
 
 
-availRoute.get("/lawyerBookings/:lawyerID", async (req, res) => {
+availRoute.get("/lawyerBookings/:lawyerID",Authenication, async (req, res) => {
     let lawyerID = req.params.lawyerID;
     try {
         let allList = await BookingModel.find({ "lawyerID": lawyerID }).sort({ created_at: -1 });
@@ -94,7 +95,7 @@ availRoute.get("/lawyerBookings/:lawyerID", async (req, res) => {
 
 
 
-availRoute.get("/userBookings/:userID", async (req, res) => {
+availRoute.get("/userBookings/:userID",Authenication, async (req, res) => {
     let userID = req.params.userID;
     try {
         let allList = await BookingModel.find({ "userID": userID }).sort({ created_at: -1 });

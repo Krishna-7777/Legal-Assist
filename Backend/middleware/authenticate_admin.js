@@ -12,10 +12,10 @@ async function AuthenicateAdmin(req, res, next) {
             if (adminData.length == 1) {
                 next();
             } else {
-                res.send({"message": "Not Authorized"});
+                res.send({"message": "Not Authorized (From AuthenticateAdmin)"});
             }
         } else {
-            res.send([{ "message": "Not Authorized" }]);
+            res.send([{ "message": "Not Authorized (From AuthenticateAdmin)" }]);
         }
     });
 }
