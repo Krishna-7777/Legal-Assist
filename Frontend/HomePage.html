@@ -5,12 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="homePage.css" />
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="footer.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Nunito"
       rel="stylesheet"
     />
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="icon" type="image/x-icon" href="LegalAssist.png" />
     <link rel="stylesheet" href="navebar.css" />
     <title>LegalAssist</title>
@@ -29,14 +34,19 @@
           <p>Home</p>
           <p>Find a Lawyer</p>
           <p>Contact US</p>
-          <p>LOGIN</p>
-          <button class="signup">SignUP</button>
+          <p>
+            <i class="fa-regular fa-user" style="color: #d043b6"></i
+            >&nbsp;&nbsp;<span id="profile">Profile</span>
+          </p>
+          <div id="signup-logout-btn">
+            <!-- <button id="signup" class="signup"  onclick="savename()">Sign up</button> -->
+          </div>
           <div id="space"></div>
         </div>
       </div>
       <div class="mybody">
         <!-- Body -->
-        <div class="banner">
+        <div class="banner" data-aos="fade-right">
           <div class="banner-left">
             <h1>
               Discover the easiest way to schedule appointments with the #1
@@ -50,7 +60,7 @@
             </p>
             <button class="start-now">Get started Now!</button>
           </div>
-          <div class="banner-right">
+          <div class="banner-right" data-aos="flip-left" data-aos-duration="1500">
             <img
               width="100%"
               src="https://www.appointy.com/online-booking-software/wp-content/uploads/2020/10/Customer-scheduling-an-online-appointment.svg"
@@ -59,7 +69,7 @@
           </div>
         </div>
         <!--  -->
-        <div class="banner2">
+        <div class="banner2" data-aos="fade-left">
           <div>
             <h2>
               Online appointment booking made simple with a 3-step <br />setup
@@ -75,7 +85,7 @@
           </div>
         </div>
         <!--  -->
-        <div class="banner3">
+        <div class="banner3" data-aos="fade-right">
           <div>
             <h2>
               Advanced booking features to help you put your business <br />
@@ -97,7 +107,7 @@
         </div>
         <!-- Grid cards -->
         <div class="grid-container">
-          <div class="card">
+          <div class="card" data-aos="zoom-in">
             <img
               src="https://www.appointy.com/online-booking-software/wp-content/uploads/2020/10/Online-Booking-System-6.svg"
               alt="Avatar"
@@ -114,7 +124,7 @@
               </p>
             </div>
           </div>
-          <div class="card">
+          <div class="card" data-aos="zoom-in">
             <img
               src="https://www.appointy.com/online-booking-software/wp-content/uploads/2020/10/Calendar-Scheduler.svg"
               alt="Avatar"
@@ -131,7 +141,7 @@
               </p>
             </div>
           </div>
-          <div class="card">
+          <div class="card" data-aos="zoom-in">
             <img
               src="https://www.appointy.com/online-booking-software/wp-content/uploads/2020/10/Appointment-Alerts.svg"
               alt="Avatar"
@@ -148,7 +158,7 @@
               </p>
             </div>
           </div>
-          <div class="card">
+          <div class="card" data-aos="zoom-in">
             <img
               src="https://www.appointy.com/online-booking-software/wp-content/uploads/2020/10/Multi-channel-Bookings.svg"
               alt="Avatar"
@@ -165,7 +175,7 @@
               </p>
             </div>
           </div>
-          <div class="card">
+          <div class="card" data-aos="zoom-in">
             <img
               src="https://www.appointy.com/online-booking-software/wp-content/uploads/2020/10/No-show-Protection.svg"
               alt="Avatar"
@@ -181,7 +191,7 @@
               </p>
             </div>
           </div>
-          <div class="card">
+          <div class="card" data-aos="zoom-in">
             <img
               src="https://www.appointy.com/online-booking-software/wp-content/uploads/2020/10/Staff-Scheduling-Management.svg"
               alt="Avatar"
@@ -198,7 +208,7 @@
               </p>
             </div>
           </div>
-          <div class="card">
+          <div class="card" data-aos="zoom-in">
             <img
               src="https://www.appointy.com/online-booking-software/wp-content/uploads//2021/08/Resource-Scheduling-1.svg"
               alt="Avatar"
@@ -214,7 +224,7 @@
               </p>
             </div>
           </div>
-          <div class="card">
+          <div class="card" data-aos="zoom-in">
             <img
               src="https://www.appointy.com/online-booking-software/wp-content/uploads/2020/10/Virtual-Appointment-Scheduling.svg"
               alt="Avatar"
@@ -233,13 +243,13 @@
               </p>
             </div>
           </div>
-          <div class="card">
+          <div class="card" data-aos="zoom-in">
             <img
               src="https://www.appointy.com/online-booking-software/wp-content/uploads/2020/10/Appointment-Booking-App.svg"
               alt="Avatar"
               style="width: 100px"
             />
-            <div class="container">
+            <div class="container" >
               <h4 style="color: black"><b>Appointment Booking App</b></h4>
               <p>
                 With Appointy’s Android & iOS mobile app you can carry your
@@ -255,7 +265,7 @@
           <button>Start your 14-day trial now!</button>
         </div>
         <!-- BANNER 4 -->
-        <div class="banner4">
+        <div class="banner4" data-aos="zoom-out">
           <div>
             <h2>
               Flexible booking settings allow you to have complete control over
@@ -263,7 +273,7 @@
             </h2>
           </div>
         </div>
-        <div class="grid-container-2">
+        <div class="grid-container-2" data-aos="zoom-out">
           <div class="card">
             <img
               src="https://www.appointy.com/online-booking-software/wp-content/uploads/2020/10/Business-Hour-Settings.svg"
@@ -321,13 +331,13 @@
             </div>
           </div>
         </div>
-        <div class="banner4">
+        <div class="banner4" >
           <div>
             <h2>Your peace of mind is our top priority!</h2>
           </div>
         </div>
         <div class="container-3">
-          <div class="cont-card">
+          <div class="cont-card" data-aos="fade-right">
             <div class="card-left">
               <img
                 src="https://www.appointy.com/online-booking-software/wp-content/uploads//2020/10/Super-Support.svg"
@@ -342,7 +352,7 @@
               </p>
             </div>
           </div>
-          <div class="cont-card">
+          <div class="cont-card" data-aos="fade-left">
             <div class="card-left">
               <img
                 src="https://www.appointy.com/online-booking-software/wp-content/uploads//2020/10/Multi-location-management.svg"
@@ -358,7 +368,7 @@
               </p>
             </div>
           </div>
-          <div class="cont-card">
+          <div class="cont-card" data-aos="fade-right">
             <div class="card-left">
               <img
                 src="https://www.appointy.com/online-booking-software/wp-content/uploads//2020/10/Frame-14.svg"
@@ -375,7 +385,7 @@
               </p>
             </div>
           </div>
-          <div class="cont-card">
+          <div class="cont-card" data-aos="fade-left">
             <div class="card-left">
               <img
                 src="https://www.appointy.com/online-booking-software/wp-content/uploads//2020/10/Security.svg"
@@ -436,8 +446,17 @@
               </div>
             </div>
           </div>
-       </footer>
+        </footer>
       </div>
     </div>
   </body>
+  <script
+    src="https://kit.fontawesome.com/422003c0e3.js"
+    crossorigin="anonymous"
+  ></script>
+  <script src="./Homepage.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </html>
