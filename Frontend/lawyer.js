@@ -227,9 +227,6 @@ document.querySelector("#Search").addEventListener("click",async()=>{
       }
     })).json();
     let Html = `No Lawyers Found with name ${name}`;
-    setTimeout(()=>{
-      document.querySelector("#LawyerList").innerHTML =cache
-    },1500)
     if(data.length){
       Html=""
       data.map(i => {
@@ -242,6 +239,10 @@ document.querySelector("#Search").addEventListener("click",async()=>{
     </div>
     `
   })
+    }else{
+ setTimeout(()=>{
+      document.querySelector("#LawyerList").innerHTML =cache
+    },1500)
     }
   document.querySelector("#LawyerList").innerHTML = Html;
     }
