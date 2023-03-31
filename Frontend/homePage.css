@@ -239,12 +239,11 @@ body{
     font-family: "Nunito";
 }
 .card-left{
-    width: 25%;
     background-color: #ffffff;
 }
 .card-left img{
     align-items: center;
-    padding: 20px;
+    padding: 15px;
 
 }
 .card-right{
