@@ -39,6 +39,9 @@ bookingRoute.post("/", async (req, res) => {
         let date = checkSlot[0].date;
 
 
+        await SlotModel.findByIdAndUpdate({"_id":slotID}, {"available": false});
+
+
         let addData = new BookingModel(data);
         await addData.save();
         mailer(userEmail, userUsername, lawyerEmail, lawyerUsername, time, date);
