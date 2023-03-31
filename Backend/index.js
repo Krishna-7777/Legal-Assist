@@ -47,9 +47,6 @@ app.use("/lawyer", lawyerRoute);
 // Users Route Segregation
 app.use("/admin", adminRoute);
 
-// Authenication
-app.use(Authenication);
-
 
 // Check availability and get Lawyer Details
 app.use("/avail", availRoute);
