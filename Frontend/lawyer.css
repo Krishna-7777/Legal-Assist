@@ -72,12 +72,20 @@ body {
     border-radius: 15px;
 }
 
-#searchBox i {
+#searchBox i, #searchBox button {
     position: absolute;
     top: 50%;
     right: 0px;
     transform: translateY(-50%);
     font-size: 18px;
+    padding: 10%;
+    background-color: unset;
+    border: unset;
+    cursor: pointer;
+}
+
+#searchBox button{
+    z-index: 1;
 }
 
 #filter {

@@ -2,7 +2,9 @@ function toggle() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-let data = [
+let cache;
+
+let DummyData = [
   {
     "name": "John Smith",
     "email": "johnsmith@gmail.com",
@@ -154,21 +156,94 @@ let data = [
   }
 ];
 
-let Html = "";
+;(async()=>{
+  let token=localStorage.getItem("token");
+  let data= await (await fetch("http://127.0.0.1:4500/avail/",{
+    headers:{
+      "Authorization":token
+    }
+  })).json();
+  if(!token){
+    window.location="./login.html"
+  }
+  let Html = "";
 data.map(i => {
   Html += `
   <div class="Lawyer">
     <div></div>
-    <h3>${i.name}</h3>
+    <h3>${i.username}</h3>
     <h3>${i.type}</h3>
-    <button onClick='Redirect("${i.name}","${i.type}")'>Book Now</button>
+    <button onClick='Redirect("${i.username}","${i.type}","${i._id}")'>Book Now</button>
   </div>
   `
 })
+cache=Html;
 document.querySelector("#LawyerList").innerHTML = Html;
+})()
 
-Redirect = (name, type) => {
-  let lawyer = { name, type };
+Redirect = (name, type, id) => {
+  let lawyer = { name, type, id };
   localStorage.setItem("lawyer", JSON.stringify(lawyer))
   window.location = "./booking.html"
 }
+
+let btns=document.querySelectorAll("#myDropdown button");
+for(let b of btns){
+b.addEventListener("click",async(e)=>{
+  let type=e.target.innerText
+  document.querySelector("#LawyerList").innerHTML =`Loading the data of ${type}...`
+    let token=localStorage.getItem("token");
+    let data= await (await fetch(`http://127.0.0.1:4500/avail/type/${type}`,{
+      headers:{
+        "Authorization":token
+      }
+    })).json();
+    let Html = `No Lawyers Found with type ${type}`;
+    if(data.length){
+      Html=""
+      data.map(i => {
+    Html += `
+    <div class="Lawyer">
+      <div></div>
+      <h3>${i.username}</h3>
+      <h3>${i.type}</h3>
+      <button onClick='Redirect("${i.username}","${i.type}","${i._id}")'>Book Now</button>
+    </div>
+    `
+  })
+    }
+  document.querySelector("#LawyerList").innerHTML = Html;
+})
+}
+
+document.querySelector("#Search").addEventListener("click",async()=>{
+  let name=document.querySelector("#inputBox").value;
+    let token=localStorage.getItem("token");
+    if(name.length){
+  document.querySelector("#LawyerList").innerHTML =`Loading the data with name ${name}...`
+      let data= await (await fetch(`http://127.0.0.1:4500/avail/name/${name}`,{
+      headers:{
+        "Authorization":token
+      }
+    })).json();
+    let Html = `No Lawyers Found with name ${name}`;
+    setTimeout(()=>{
+      document.querySelector("#LawyerList").innerHTML =cache
+    },1500)
+    if(data.length){
+      Html=""
+      data.map(i => {
+    Html += `
+    <div class="Lawyer">
+      <div></div>
+      <h3>${i.username}</h3>
+      <h3>${i.type}</h3>
+      <button onClick='Redirect("${i.username}","${i.type}","${i._id}")'>Book Now</button>
+    </div>
+    `
+  })
+    }
+  document.querySelector("#LawyerList").innerHTML = Html;
+    }
+    
+})
