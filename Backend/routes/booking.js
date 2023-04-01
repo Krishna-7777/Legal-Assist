@@ -15,12 +15,14 @@ bookingRoute.use(express.json());
 
 
 
-bookingRoute.post("/",AuthenicateUser, async (req, res) => {
+bookingRoute.post("/", AuthenicateUser, async (req, res) => {
     let data = req.body;
-    let { lawyerID, userID, slotID } = data;
+    let { lawyerID, username, slotID } = data;
 
     try {
-        let checkUser = await UsersModel.find({ "_id": userID });
+        let findUserID = await UsersModel.find({"username": username});
+        
+        let checkUser = await UsersModel.find({ "_id": findUserID[0]._id });
         let checkLawyer = await LawyerModel.find({ "_id": lawyerID });
         let checkSlot = await SlotModel.find({ "_id": slotID });
 
@@ -30,17 +32,17 @@ bookingRoute.post("/",AuthenicateUser, async (req, res) => {
 
 
         let userEmail = checkUser[0].email;
-        let userUsername = checkUser[0].username;
+        let userUsername = username;
         let lawyerEmail = checkLawyer[0].email;
         let lawyerUsername = checkLawyer[0].username;
         let time = checkSlot[0].time;
         let date = checkSlot[0].date;
 
 
-        await SlotModel.findByIdAndUpdate({"_id":slotID}, {"available": false});
+        await SlotModel.findByIdAndUpdate({ "_id": slotID }, { "available": false });
 
 
-        let addData = new BookingModel(data);
+        let addData = new BookingModel({lawyerID, "userID": findUserID[0]._id, slotID });
         await addData.save();
         mailer(userEmail, userUsername, lawyerEmail, lawyerUsername, time, date);
         res.send({ "msg": "Booking Successfull" });
@@ -53,7 +55,7 @@ bookingRoute.post("/",AuthenicateUser, async (req, res) => {
 
 
 // For Admin Purpose
-bookingRoute.get("/allBookings",AuthenicateAdmin, async (req, res) => {
+bookingRoute.get("/allBookings", AuthenicateAdmin, async (req, res) => {
     try {
         let allList = await BookingModel.find();
         let array = [];
@@ -65,16 +67,20 @@ bookingRoute.get("/allBookings",AuthenicateAdmin, async (req, res) => {
             let checkLawyer = await LawyerModel.find({ "_id": allList[a].lawyerID });
             let checkSlot = await SlotModel.find({ "_id": allList[a].slotID });
 
-            // set key value
-            obj["bookingID"] = allList[a]._id;
-            obj["username"] = checkUser[0].username;
-            obj["lawyername"] = checkLawyer[0].username;
-            obj["time"] = checkSlot[0].time;
-            obj["date"] = checkSlot[0].date.toString();
-            obj["description"] = allList[a].description;
+            
+            if (checkUser.length == 1 && checkLawyer.length == 1 && checkSlot.length == 1) {
+                // set key value
+                obj["bookingID"] = allList[a]._id;
+                obj["username"] = checkUser[0].username;
+                obj["lawyername"] = checkLawyer[0].username;
+                obj["time"] = checkSlot[0].time;
+                obj["date"] = checkSlot[0].date.toString();
+                obj["description"] = allList[a].description;
 
-            // Pushing to array
-            array.push(obj);
+                // Pushing to array
+                array.push(obj);
+            }
+
         }
 
         res.send(array);
