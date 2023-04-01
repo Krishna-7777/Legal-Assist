@@ -1,6 +1,6 @@
 function savename() {
   // localStorage.setItem("name", "Nikhil");
-  window.location.reload();
+  window.location.href ="./loginPage/loginPage.html";
 }
 
 // let logout = document.getElementById("logout");
