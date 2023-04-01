@@ -11,7 +11,7 @@ availRoute.use(express.json());
 
 
 // To get all Lawyers 
-availRoute.get("/", async (req, res) => {
+availRoute.get("/",Authenication,  async (req, res) => {
     try {
         let allList = await LawyerModel.find();
         res.send(allList);
