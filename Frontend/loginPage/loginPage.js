@@ -7,6 +7,12 @@ const email = document.querySelector("#email")
 const password = document.querySelector("#password")
 const type = document.querySelector("#select")
 
+let img = document.querySelector(".navImg")
+img.addEventListener("click", ()=>{
+    // console.log("hello")
+    window.location.href = "../index.html"
+})
+
 let flag = true
 function changeBtn() {
     // console.log("hello")
@@ -116,8 +122,9 @@ async function usersAccountcreate(obj) {
         })
         if (res) {
             let data = await res.json()
-            alert(data[0].message)
+            alert(data.msg)
         }
+
     } catch (error) {
         console.log("something error while create account")
     }

@@ -4,6 +4,26 @@
     font-family: sans-serif;
 }
 
+.nav{
+    /* border: 1px solid rebeccapurple; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 10px 0px;
+
+}
+
+.nav>img{
+    width: 70px;
+    margin: 0px 20px;
+}
+
+.nav>p{
+    color: teal;
+    font-size: 30px;
+}
+
 .container{
     /* border: 1px solid red; */
     display: flex;
@@ -23,50 +43,52 @@
     /* border: 1px solid red; */
     position: absolute;
     color: white;
-    top: 50%;
+    top: 40%;
     text-align: center;
     margin: auto;
 }
 .change p{
     margin: 25px;
+    font-size: 20px;
 }
 
 .change button{
-    padding: 15px 50px;
+    padding: 20px 50px;
     border-radius: 20px;
     border: 2px solid white;
     background-color: skyblue;
+    font-size: 20px;
     color: white;
     cursor: pointer;
+
 }
 
 .change>img{
     width: 100%;
-    height: 100%;
+    height: 843px;
 }
 
 
 .fillDetail{
-    border: 1px solid green;
-    /* background-color: teal; */
+    /* border: 1px solid green; */
     width: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: 200px; */
 }
 
 .createAccount{
-    /* border: 1px solid red; */
     text-align: center;
 }
 .createAccount h1{
     color: teal;
     margin: 20px;
+    font-size: 50px;
 }
 
 .createAccount p{
     margin: 20px;
+    font-size: 20px;
 }
 
 .fillCredential{
@@ -75,20 +97,20 @@
 }
 
 .fillCredential input{
-    height: 30px;
-    width: 350px;
+    display: block;
+    height: 50px;
+    width: 400px;
     margin: 10px 0px;
     padding-left: 10px;
     outline: none;
-}
-.fillCredential>p{
-    color: green;
+    font-size: 20px;
 }
 
 #select{
-    height: 35px;
-    width: 365px;
+    height: 50px;
+    width: 415px;
     margin: 10px 0px;
+    font-size: 20px;
     padding-left: 10px;
     outline: none;
 }
@@ -102,13 +124,13 @@
 }
 
 .signUpBtn{
-    padding: 15px 50px;
+    padding: 20px 50px;
     border-radius: 20px;
     border: 2px solid white;
     background-color: skyblue;
+    font-size: 20px;
     color: white;
     cursor: pointer;
-    /* font-size: 17px; */
 }
 
 @media screen and (min-width: 600px) and (max-width:900px){
