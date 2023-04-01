@@ -62,10 +62,15 @@ availRoute.get("/slots/:lawyerID",Authenication, async(req,res)=>{
 
 
 
-availRoute.get("/lawyerBookings/:lawyerID",Authenication, async (req, res) => {
-    let lawyerID = req.params.lawyerID;
+availRoute.get("/lawyerBookings/:username",Authenication, async (req, res) => {
+    let username = req.params.username;
     try {
-        let allList = await BookingModel.find({ "lawyerID": lawyerID }).sort({ created_at: -1 });
+        let findlawyer = await LawyerModel.find({"username": username});
+        var id = "";
+        if(findlawyer.length == 1){
+            id = findlawyer[0]._id;
+        }
+        let allList = await BookingModel.find({ "lawyerID": id }).sort({ created_at: -1 });
         let array = [];
         for (let a = 0; a < allList.length; a++) {
             let obj = {};
@@ -95,10 +100,15 @@ availRoute.get("/lawyerBookings/:lawyerID",Authenication, async (req, res) => {
 
 
 
-availRoute.get("/userBookings/:userID",Authenication, async (req, res) => {
-    let userID = req.params.userID;
+availRoute.get("/userBookings/:username",Authenication, async (req, res) => {
+    let username = req.params.username;
     try {
-        let allList = await BookingModel.find({ "userID": userID }).sort({ created_at: -1 });
+        let findUser = await UsersModel.find({"username": username});
+        var id = "";
+        if(findUser.length == 1){
+            id = findUser[0]._id;
+        }
+        let allList = await BookingModel.find({ "userID": id }).sort({ created_at: -1 });
         let array = [];
         for (let a = 0; a < allList.length; a++) {
             let obj = {};
