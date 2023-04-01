@@ -1,5 +1,5 @@
 function savename() {
-  localStorage.setItem("name", "Nikhil");
+  // localStorage.setItem("name", "Nikhil");
   window.location.reload();
 }
 
