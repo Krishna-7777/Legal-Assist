@@ -1,6 +1,5 @@
-let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IktyaXNobmFAZ21haWwuY29tIiwiaWF0IjoxNjgwMTgyOTQwLCJleHAiOjE2ODA3ODc3NDB9.sOaQeyXlTxuwt-qcE8yI9USYc373lnttNai7SH-kEjU";
-
-let admintoken="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY4MDI2MDY4OCwiZXhwIjoxNjgwMjcxNDg4fQ.QIfzewPPgbl3MpEGBt93hEheqhP8n5jN5bBftiVDh9g"
+let token=localStorage.getItem('token')
+// "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY4MDMzNzczMywiZXhwIjoxNjgwMzQ4NTMzfQ.lMVP-uH6mR-lRqAKN9fqAxRJVVlNjy7Iq4gQBOC49I4"
 
 let body=document.querySelector("#mainBody");
 
@@ -9,7 +8,7 @@ document.querySelector("#userDetails").addEventListener("click", async()=>{
     let Html="<h2 style='text-align:center'>User Details</h2><div class='Lawyer'><h3>Name</h3><h3>Email</h3></div>";
     let data= await (await fetch("http://127.0.0.1:4500/users/all",{
       headers:{
-        "Authorization":admintoken
+        "Authorization":token
       }
     })).json();
   data.map(i => {
@@ -47,7 +46,7 @@ document.querySelector("#showBookings").addEventListener("click",async()=>{
   let Html="<h2 style='text-align:center'>Lawyer Details</h2>";
   let data= await (await fetch("http://127.0.0.1:4500/book/allBookings",{
     headers:{
-      "Authorization":admintoken
+      "Authorization":token
     }
   })).json();
   console.log(data);

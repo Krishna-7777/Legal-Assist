@@ -9,13 +9,13 @@ body {
     gap: 10%;
 }
 
-#Booking form {
+#form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-#Booking form div {
+#form div {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
@@ -35,11 +35,25 @@ textarea {
     padding: 2%;
 }
 
-#submit {
+#Submit {
     min-height: 110%;
 }
 
 #decsription {
     font-size: 20px;
     padding: 1% 10%;
+}
+
+#slots input{
+    position: relative;
+    right: 30%;
+}
+#Slot{
+    font-size: 18px;
+    width: 200%;
+    position: relative;
+    right:70%;
+    display: grid;
+    gap: 0px;
+    grid-template-columns: repeat(2,1fr);
 }
