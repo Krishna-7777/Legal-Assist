@@ -1,4 +1,5 @@
 let data = JSON.parse(localStorage.getItem("lawyer"));
+let token = localStorage.getItem("token")
 document.querySelector("#name").innerText = data.name
 document.querySelector("#type").innerText = data.type
 let ldesc = {
@@ -22,7 +23,65 @@ let ldesc = {
     "Contract Lawyer": "Contract lawyers specialize in drafting and reviewing legal contracts. These contracts can be for both businesses and individuals. Examples of business legal contracts include sales contracts, supplier contracts, nondisclosure agreements, partnership agreement, employment agreements and joint venture agreements. Examples of personal contracts include power of attorneys, residential leases, and home purchase agreements.",
     "Government Lawyer": "A professional who works for the government is known as a government lawyer. They are trained certified lawyers who offers legal counsel to government ministers and administrative personnel. A government lawyer is in charge of addressing a variety of duties, including prosecuting criminal offences, making regulations, counselling local authorities, and resolving policy matters. In addition to advising government officials on a variety of legal matters, they also represents the government in court. They assists numerous government entities while also upholding local and municipal laws.",
     "Immigration Lawyer": "The roles and responsibilities of an immigration lawyer includes giving clients legal advice on a range of topics linked to both legal and illegal immigration is one of an immigration lawyer's job duties. He or she aids in completing legal requirements for the issuance of work permits and different visas, such as medical, tourist, and business visas. He or she offers assistance to foreign persons who are unsure about their legal Indian citizenship or who need visas to enter the country."
-    
+
 }
 
-document.querySelector("#ld").innerText = ldesc[`${data.type}`]
+document.querySelector("#ld").innerText = ldesc[`${data.type}`];
+
+    ; (async () => {
+        let res = await (await fetch(`http://127.0.0.1:4500/avail/slots/${data.id}`, {
+            headers: {
+                "Authorization": token
+            }
+        })).json();
+        let Html = ""
+       
+            res.map(slot => {
+                let date = slot.date.split("T")
+                if(slot.available){
+                  Html += `
+        <input type="radio" name="Slots" id="${slot._id}" required>
+        <div id="Slot">
+        <div>${slot.time}</div>
+        <div>${date[0]}</div>
+        </div>
+        </input>
+        `  
+                }})
+                
+        if (Html==""){
+            Html = "<h3>No Slot Available</h3>"
+            document.getElementById("Submit").setAttribute('disabled', '');
+        }
+
+        document.getElementById("slots").innerHTML = Html
+    })()
+
+document.getElementById("Submit").addEventListener("click",async(e)=>{
+    let description=document.getElementById("Description").value;
+    let slots=document.querySelectorAll("#slots input");
+    let slotID=""
+    for(let i of slots){
+        if(i.checked){
+            slotID=i.id
+        }
+    }
+    if(description!==""&&slotID!==""){
+        e.preventDefault();
+        let payload={
+        description,slotID,lawyerID:data.id,username:localStorage.getItem("name")
+    }
+    let res = await fetch("http://127.0.0.1:4500/book/", {
+        method: "POST",
+        headers: {
+            "authorization": token,
+            "Content-Type":"application/json"
+        },body: JSON.stringify(payload)  
+    })
+    res=await res.json()
+    alert(res.msg)
+    window.location="./userBooking.html"
+    }
+    
+    console.log(payload)
+})
