@@ -17,7 +17,7 @@ bookingRoute.use(express.json());
 
 bookingRoute.post("/", AuthenicateUser, async (req, res) => {
     let data = req.body;
-    let { lawyerID, username, slotID } = data;
+    let { lawyerID, username, slotID, description } = data;
 
     try {
         let findUserID = await UsersModel.find({"username": username});
@@ -42,7 +42,7 @@ bookingRoute.post("/", AuthenicateUser, async (req, res) => {
         await SlotModel.findByIdAndUpdate({ "_id": slotID }, { "available": false });
 
 
-        let addData = new BookingModel({lawyerID, "userID": findUserID[0]._id, slotID });
+        let addData = new BookingModel({lawyerID, "userID": findUserID[0]._id, slotID, description });
         await addData.save();
         mailer(userEmail, userUsername, lawyerEmail, lawyerUsername, time, date);
         res.send({ "msg": "Booking Successfull" });
