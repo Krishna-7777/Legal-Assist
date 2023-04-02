@@ -20,7 +20,7 @@
             date.pop()
             Html += `
 <div>
-<h2>Client : ${b.username}</h2>
+<h2>Lawyer : ${b.lawyername}</h2>
 <h2>Time : ${b.time}</h2>
 <h2>Date : ${date.join(' ')}</h2>
     <h2>Description : ${b.description}</h2>
