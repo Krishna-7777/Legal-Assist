@@ -7,6 +7,19 @@ Legal Appointment Booking System
 
 
 
+## Tech Stacks
+- HTML
+- CSS
+- JavaScript
+- MongoDB
+- ExpressJS
+- Mongoose
+
+
+
+
+
+
 # Routes Details
 
 1. "/" => will give welcome note
