@@ -153,7 +153,7 @@ const createAccount = () => {
 async function lawyerAccountCreate(obj) {
     // console.log(obj)
     try {
-        let res = await fetch(`http://localhost:4500/lawyer/register`, {
+        let res = await fetch(`https://breakable-deer-earrings.cyclic.app/lawyer/register`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -174,7 +174,7 @@ async function lawyerAccountCreate(obj) {
 async function lawyerLoginAccount(obj, type){
     // console.log(obj, type)
     try {
-        let res = await fetch(`http://localhost:4500/lawyer/login`, {
+        let res = await fetch(`https://breakable-deer-earrings.cyclic.app/lawyer/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -29,7 +29,7 @@ let ldesc = {
 document.querySelector("#ld").innerText = ldesc[`${data.type}`];
 
     ; (async () => {
-        let res = await (await fetch(`http://127.0.0.1:4500/avail/slots/${data.id}`, {
+        let res = await (await fetch(`https://breakable-deer-earrings.cyclic.app/avail/slots/${data.id}`, {
             headers: {
                 "Authorization": token
             }
@@ -71,7 +71,7 @@ document.getElementById("Submit").addEventListener("click",async(e)=>{
         let payload={
         description,slotID,lawyerID:data.id,username:localStorage.getItem("name")
     }
-    let res = await fetch("http://127.0.0.1:4500/book/", {
+    let res = await fetch("https://breakable-deer-earrings.cyclic.app/book/", {
         method: "POST",
         headers: {
             "authorization": token,

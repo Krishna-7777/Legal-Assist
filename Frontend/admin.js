@@ -6,7 +6,7 @@ let body=document.querySelector("#mainBody");
 document.querySelector("#userDetails").addEventListener("click", async()=>{
   body.innerHTML="<h2 style='text-align:center'>Loading User Details</h2>"
     let Html="<h2 style='text-align:center'>User Details</h2><div class='Lawyer'><h3>Name</h3><h3>Email</h3></div>";
-    let data= await (await fetch("http://127.0.0.1:4500/users/all",{
+    let data= await (await fetch("https://breakable-deer-earrings.cyclic.app/users/all",{
       headers:{
         "Authorization":token
       }
@@ -25,7 +25,7 @@ body.innerHTML=Html
 document.querySelector("#lawyerDetails").addEventListener("click",async()=>{
   body.innerHTML="<h2 style='text-align:center'>Loading Lawyers Data</h2>"
     let Html="<h2 style='text-align:center'>Lawyer Details</h2><div class='Lawyer'><h3>Name</h3><h3>Type</h3></div>";
-        let data= await (await fetch("http://127.0.0.1:4500/avail/",{
+        let data= await (await fetch("https://breakable-deer-earrings.cyclic.app/avail/",{
           headers:{
             "Authorization":token
           }
@@ -44,7 +44,7 @@ document.querySelector("#lawyerDetails").addEventListener("click",async()=>{
 document.querySelector("#showBookings").addEventListener("click",async()=>{
   body.innerHTML="<h2 style='text-align:center'>Loading Bookings Data</h2>"
   let Html="<h2 style='text-align:center'>Lawyer Details</h2>";
-  let data= await (await fetch("http://127.0.0.1:4500/book/allBookings",{
+  let data= await (await fetch("https://breakable-deer-earrings.cyclic.app/book/allBookings",{
     headers:{
       "Authorization":token
     }

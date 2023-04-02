@@ -3,7 +3,7 @@
     if(!token){
         window.location="./loginPage/loginPage.html"
     }
-    let data = await (await fetch(`http://127.0.0.1:4500/avail/userBookings/${localStorage.getItem("name")}`, {
+    let data = await (await fetch(`https://breakable-deer-earrings.cyclic.app/avail/userBookings/${localStorage.getItem("name")}`, {
         headers: {
             "Authorization": token
         }

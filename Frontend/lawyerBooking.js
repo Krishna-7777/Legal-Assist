@@ -1,5 +1,5 @@
 (async () => {
-    let data = await (await fetch(`http://127.0.0.1:4500/avail/lawyerBookings/${localStorage.getItem("name")}`, {
+    let data = await (await fetch(`https://breakable-deer-earrings.cyclic.app/avail/lawyerBookings/${localStorage.getItem("name")}`, {
         headers: {
             "Authorization": localStorage.getItem("token")
         }

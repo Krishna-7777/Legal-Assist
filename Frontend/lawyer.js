@@ -158,7 +158,7 @@ let DummyData = [
 
 ;(async()=>{
   let token=localStorage.getItem("token");
-  let data= await (await fetch("http://127.0.0.1:4500/avail/",{
+  let data= await (await fetch("https://breakable-deer-earrings.cyclic.app/avail/",{
     headers:{
       "Authorization":token
     }
@@ -193,7 +193,7 @@ b.addEventListener("click",async(e)=>{
   let type=e.target.innerText
   document.querySelector("#LawyerList").innerHTML =`Loading the data of ${type}...`
     let token=localStorage.getItem("token");
-    let data= await (await fetch(`http://127.0.0.1:4500/avail/type/${type}`,{
+    let data= await (await fetch(`https://breakable-deer-earrings.cyclic.app/avail/type/${type}`,{
       headers:{
         "Authorization":token
       }
@@ -221,7 +221,7 @@ document.querySelector("#Search").addEventListener("click",async()=>{
     let token=localStorage.getItem("token");
     if(name.length){
   document.querySelector("#LawyerList").innerHTML =`Loading the data with name ${name}...`
-      let data= await (await fetch(`http://127.0.0.1:4500/avail/name/${name}`,{
+      let data= await (await fetch(`https://breakable-deer-earrings.cyclic.app/avail/name/${name}`,{
       headers:{
         "Authorization":token
       }

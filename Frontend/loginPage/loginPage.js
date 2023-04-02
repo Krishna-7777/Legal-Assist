@@ -36,15 +36,31 @@ function changeBtn() {
         const email = document.querySelector("#email")
         const password = document.querySelector("#password")
         let create = document.querySelector(".signUpBtn")
-        create.addEventListener("click", ()=>{
+        create.addEventListener("click",async ()=>{
             // console.log("hello")
             let obj = {
                 email: email.value,
                 password: password.value
             }
             if(obj.email=="admin@gmail.com" && obj.password=="admin"){
-                alert("hello admin")
-                // window.location.href = "admin.html"
+                try {
+                    let res = await fetch(`https://breakable-deer-earrings.cyclic.app/admin/login`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({"email":"admin@gmail.com","password":"admin"})
+                    })
+                    if (res) {
+                        let data = await res.json()
+                        alert(data[0].message)
+                        console.log(data)
+                    localStorage.setItem("token",data[1].Access_Token) 
+                    }
+                } catch (error) {
+                    console.log("something error while create account")
+                }
+                window.location.href = "../admin.html"
             }else{
                 if(obj.email=="" || obj.password==""){
                     alert("Plz fill credential")
@@ -113,7 +129,7 @@ const createAccount = () => {
 async function usersAccountcreate(obj) {
     console.log(obj)
     try {
-        let res = await fetch(`http://localhost:4500/users/register`, {
+        let res = await fetch(`https://breakable-deer-earrings.cyclic.app/users/register`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -134,7 +150,7 @@ async function usersAccountcreate(obj) {
 async function userLoginAccount(obj){
     console.log(obj)
     try {
-        let res = await fetch(`http://localhost:4500/users/login`, {
+        let res = await fetch(`https://breakable-deer-earrings.cyclic.app/users/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

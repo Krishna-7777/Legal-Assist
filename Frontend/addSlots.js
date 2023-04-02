@@ -10,7 +10,7 @@ document.getElementById("bookSlot").addEventListener("click", async () => {
         let available=true
         let payload= JSON.stringify({ username,time,date,available})
         if(time && date){
-            let res = await fetch("http://127.0.0.1:4500/lawyer/add", {
+            let res = await fetch("https://breakable-deer-earrings.cyclic.app/lawyer/add", {
         method: "POST",
         headers: {
             "authorization": token,
