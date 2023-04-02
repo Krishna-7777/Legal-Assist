@@ -12,6 +12,7 @@ Legal Appointment Booking System
 - CSS
 - JavaScript
 - MongoDB
+- NodeJS
 - ExpressJS
 - Mongoose
 
@@ -47,3 +48,28 @@ Authentication Required (in below routes) (for Users, Lawyers, Admins)
 
 16. "/book/" => (only for users) to book slots by providing (lawyerID, userID, slotID) in body
 17. "/book/allBookings" (only for Admin purpose) use this to get list of bookings 
+
+
+
+
+# Images
+- HOMEPAGE
+![homepage](https://user-images.githubusercontent.com/112761880/229361349-e14c12db-c50f-4a9f-9aeb-a1311fac2ea7.jpg)
+
+- LAWYERS LIST
+![Lawyers List](https://user-images.githubusercontent.com/112761880/229361324-d9b02dcf-3bfb-46bc-88a4-cd081886112e.jpg)
+
+- SIGNUP PAGE FOR LAWYERS
+![Signup page Lawyer](https://user-images.githubusercontent.com/112761880/229361335-2d8b1c6f-1374-49ff-85f0-30a9aaab0d64.jpg)
+
+- SIGNUP PAGE FOR USERS
+![Signup page](https://user-images.githubusercontent.com/112761880/229361341-8558c449-21dc-4bdc-b72e-c65e10ec1547.jpg)
+
+- SLOT BOOKING PAGE FOR LAWYERS
+![Slot booking](https://user-images.githubusercontent.com/112761880/229361342-189ca0be-5cea-420b-97a0-fed4c1de5830.jpg)
+
+- BOOKINGS PAGE
+![Bookings](https://user-images.githubusercontent.com/112761880/229361346-e7354052-bb75-40df-9c21-4faae1e2dba7.jpg)
+
+- ADMIN PAGE
+![Admin Panel](https://user-images.githubusercontent.com/112761880/229361344-aed5df3a-1453-482e-8283-f8a54f2e6fb9.jpg)
