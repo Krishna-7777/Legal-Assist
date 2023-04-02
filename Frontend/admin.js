@@ -69,3 +69,9 @@ data.map(i => {
 })
 body.innerHTML=Html
 })
+
+function Logout(){
+  localStorage.removeItem("token")
+  localStorage.removeItem("name")
+  window.location="./HomePage.Html";
+}

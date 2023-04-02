@@ -76,6 +76,23 @@ img {
     font-weight: 600;
 }
 
+#lgtbtn{
+    z-index: 4000;
+    border: 2px solid black;
+    position: fixed;
+    top: 2.6%;
+    right: 3%;
+    font-size: 22px;
+    color: white;
+    padding: 0.5% 1%;
+    border-radius: 15px;
+    background-color: #3b80a0;
+}
+
+#lgtbtn:hover{
+    background-color: #0066A7;
+    cursor: pointer;
+}
 /* Notification section */
 
 #empty {
