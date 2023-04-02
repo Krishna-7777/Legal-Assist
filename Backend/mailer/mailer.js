@@ -30,7 +30,7 @@ async function mailer(userEmail, userUsername, lawyerEmail, lawyerUsername, time
             Thank you for choosing me as your legal counsel. I look forward to helping you resolve your legal matter.
             
             Sincerely,
-            ${userUsername}`
+            ${lawyerUsername}`
         })
             .then((result) => {
                 console.log(`Mail Sent to Users Email ${userEmail}`);
@@ -53,7 +53,7 @@ async function mailer(userEmail, userUsername, lawyerEmail, lawyerUsername, time
             Thank you for your time and consideration. I look forward to speaking with you soon.
             
             Sincerely,
-            ${lawyerUsername}`
+            ${userUsername}`
         })
             .then((result) => {
                 console.log(`Mail Sent to Lawyer Email ${lawyerEmail}`);
