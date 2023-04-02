@@ -164,7 +164,7 @@ let DummyData = [
     }
   })).json();
   if(!token){
-    window.location="./login.html"
+    window.location="./loginPage/loginPage.html"
   }
   let Html = "";
 data.map(i => {

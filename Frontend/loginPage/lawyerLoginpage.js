@@ -189,7 +189,7 @@ async function lawyerLoginAccount(obj, type){
             localStorage.setItem("name", name)
             localStorage.setItem("token", token)
             alert(message)
-            
+            window.location="../lhomepage.html"
         }
     } catch (error) {
         console.log("something went wrong in login account")

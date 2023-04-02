@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find a Lawyer</title>
     <link rel="icon" type="image/x-icon" href="./logo/LegalAssist.png">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <script src="https://kit.fontawesome.com/5598f0038c.js" crossorigin="anonymous"></script>
 </head>
 <link rel="stylesheet" href="./Lawyer.css">
@@ -14,25 +17,36 @@
 
 <body>
     <div class="navbar">
-        <div class="right-nav"><a href=""><img width="50" src="./logo/LegalAssist-Transparent.png" alt=""></a>
+        <div class="right-nav">
+            <a href="./HomePage.html"><img width="50" src="LegalAssist-Transparent.png" alt="" /></a>
             <h4>Legal Assist</h4>
         </div>
         <div class="nav">
-            <p>Home</p>
-            <p>Customer</p>
-            <a href="./Lawyer.html">
+            <a href="./HomePage.html">
+                <p>Home</p>
+            </a>
+            <p></p>
+            <a href="./lawyer.html">
                 <p>Find A Lawyer</p>
             </a>
-            <p>Contact US</p>
-            <p>Login</p>
-            <button class="signup">SignUP</button>
+            <p></p>
+            <a href="./userBooking.html">
+                <p>My Bookings</p>
+            </a>
+            <p></p>
+            <p>
+                <i class="fa-regular fa-user" style="color: #d043b6"></i>&nbsp;&nbsp;<span id="profile">Profile</span>
+            </p>
+            <p></p>
+            <div id="signup-logout-btn">
+            </div>
             <div id="space"></div>
         </div>
     </div>
     <div id="LawyerBar">
         <div id="searchBox">
             <input class="searchInput" contenteditable="true" placeholder="Search Lawyer..." id="inputBox"></input>
-            <button  id="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button id="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
         <div class="dropdown">
             <button onclick="toggle()" class="dropbtn" id="filter">Filter By Type</button>
@@ -68,6 +82,7 @@
         Loading...
     </div>
     <script src="./Lawyer.js"></script>
+    <script src="./Homepage.js"></script>
 </body>
 
 </html>

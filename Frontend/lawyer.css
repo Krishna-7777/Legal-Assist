@@ -116,3 +116,7 @@ body {
     grid-template-columns: repeat(5, 1fr);
     align-items: center;
 }
+
+body{
+    font-family: "Nunito";
+}

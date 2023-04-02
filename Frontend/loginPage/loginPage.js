@@ -122,7 +122,7 @@ async function usersAccountcreate(obj) {
         })
         if (res) {
             let data = await res.json()
-            alert(data.msg)
+            alert(data[0].message)
         }
 
     } catch (error) {
@@ -149,6 +149,7 @@ async function userLoginAccount(obj){
             localStorage.setItem("name", name)
             localStorage.setItem("token", token)
             alert(message)
+            window.location="../HomePage.html"
         }
     } catch (error) {
         console.log("something went wrong in login account")

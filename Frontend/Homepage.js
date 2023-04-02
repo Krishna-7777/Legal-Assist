@@ -1,6 +1,6 @@
 function savename() {
   // localStorage.setItem("name", "Nikhil");
-  window.location.reload();
+  window.location="./loginPage/loginPage.html"
 }
 
 // let logout = document.getElementById("logout");
@@ -17,6 +17,7 @@ let logoutbtn = document.getElementById("logout");
 
 function logout() {
   localStorage.removeItem("name");
+  localStorage.removeItem("token");
   profile.innerHTML = "My Profile";
   window.location.reload();
 }

@@ -1,7 +1,11 @@
 (async () => {
+    let token=localStorage.getItem("token")
+    if(!token){
+        window.location="./loginPage/loginPage.html"
+    }
     let data = await (await fetch(`http://127.0.0.1:4500/avail/userBookings/${localStorage.getItem("name")}`, {
         headers: {
-            "Authorization": localStorage.getItem("token")
+            "Authorization": token
         }
     })).json();
     console.log(data);
