@@ -54,6 +54,8 @@ Authentication Required (in below routes) (for Users, Lawyers, Admins)
 
 # Images
 - HOMEPAGE
+![homepageSmall](https://user-images.githubusercontent.com/112761880/229686303-7dbee180-48d1-4ec7-9cbb-c0a09802c82b.jpg)
+
 ![homepage](https://user-images.githubusercontent.com/112761880/229361349-e14c12db-c50f-4a9f-9aeb-a1311fac2ea7.jpg)
 
 - LAWYERS LIST
