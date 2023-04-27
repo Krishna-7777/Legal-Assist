@@ -3,7 +3,7 @@
 
 ## LegalAssist
 
-Legal Appointment Booking System
+The appointment booking system in question is designed specifically for booking appointments with lawyers. It offers a streamlined process for clients to find and book appointments with legal professionals, ensuring that they have access to the legal advice and representation they need.
 
 
 
